@@ -1,0 +1,132 @@
+.ifFooter {
+    width: 100% !important;
+    height: 395px !important;
+}
+
+input {
+    border-radius: .5rem !important;
+}
+
+select {
+    border-radius: .5rem !important;
+}
+
+.acoes {
+    width: 13% !important;
+    text-align: center !important;
+}
+
+.trCss {
+    background-color: #CCD7EC !important;
+}
+
+table {
+    border-collapse:separate;
+    border-radius:6px;
+}
+
+td, th {
+    border-top:solid rgb(255, 255, 255) 4px;
+    padding: 1rem;
+}
+
+tbody tr td:last-child {
+    min-width: 135px;
+}
+
+tbody tr:last-child td {
+    border-bottom:solid rgb(255, 255, 255) 4px;
+}
+
+thead tr th:first-child {
+    border-radius: 1rem 0 0 0;
+}
+
+thead tr th:last-child {
+    border-radius:0 1rem 0 0;
+}
+
+tfoot tr th:first-child {
+    border-radius: 0 0 0 1rem;
+}
+
+tfoot tr th:last-child {
+    border-radius:0 0 1rem 0;
+}
+
+th {
+    background-color: #333E68;
+    color: #fff;
+    border-top: none;
+}
+
+.page-item {
+    padding: 0 .25rem;
+}
+
+.page-item a {
+    color: #5f4def;
+    border-radius: 1rem; 
+}
+
+.page-item a:hover {
+    text-decoration: none;
+    color: #5f4def;
+}
+
+.page-item.active a {
+    background-color: #5f4def;
+    border-color: #5f4def;
+}
+
+.page-item.active a {
+    color: #fff;
+}
+
+.page-item:not(.previous) a, .page-item:not(.next) a {
+    min-width: 48px;
+    min-height: 48px;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-item.previous a, .page-item.next a {
+    border-radius: 1rem !important;
+    min-width: none !important;
+}
+
+.chosen-container{
+    width: 100% !important;
+}
+/* VERIFICAR SE FICA LEGAL
+.ifFooter {
+    width: 100% !important;
+    height: 395px !important;
+}
+
+.acoes {
+    width: 13% !important;
+    text-align: center !important;
+}
+
+.trCss {
+    background-color: #fff !important;
+}
+
+table {
+    border-collapse:separate;
+    border-radius:6px;
+}
+
+td, th {
+    border-top:solid #CCD7EC 3px;
+    border-radius:5px;
+}
+
+th {
+    background-color: #333E68;
+    color: #CCD7EC;
+    border-top: none;
+}*/

@@ -1,0 +1,1717 @@
+{
+	"info": {
+		"_postman_id": "51b87fe6-2019-4bf2-97c5-6a56695cd42b",
+		"name": "**Cadastro de Vagas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12684614"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"matricula\": \"admin\",\r\n    \"senha\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/auth/login",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Config",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/auth/config",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"auth",
+								"config"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "Aluno",
+					"item": [
+						{
+							"name": "Cadastro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"junior\",\r\n    \"email\": \"aluno2@gmail.com\",\r\n    \"senha\": \"teste\",\r\n    \"matricula\": \"1234\",\r\n    \"perfil\": {\r\n        \"nome\": \"ROLE_ALUNO\"\r\n    },\r\n    \"arquivo\": {\r\n        \"id\": \"19bfc5a0-82bb-4873-8812-76f3d4663bb7\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/auth/cadastro",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"auth",
+										"cadastro"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Professor",
+					"item": [
+						{
+							"name": "Cadastro",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"junior\",\r\n    \"email\": \"professorIFRS2@gmail.com\",\r\n    \"senha\": \"teste\",\r\n    \"matricula\": \"10020030022\",\r\n    \"perfil\": {\r\n        \"nome\": \"ROLE_PROFESSOR\"\r\n    },\r\n    \"arquivo\": {\r\n        \"id\": \"19bfc5a0-82bb-4873-8812-76f3d4663bb7\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/auth/cadastro",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"auth",
+										"cadastro"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"junior\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/usuario/editar/2",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"usuario",
+								"editar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/usuario/pesquisar/4",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"usuario",
+								"pesquisar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"matricula\": \"12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/usuario/filtrar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"usuario",
+								"filtrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/usuario/deletar/3",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"usuario",
+								"deletar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/usuario/listar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"usuario",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vaga",
+			"item": [
+				{
+					"name": "Criar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Programador python\",\r\n    \"descricao\": \"Trabalhe de casa como Desenvolvedor de Software. Ganhe em dólar. Trabalho integral. Inscreva-se, faça nosso teste e torne-se um desenvolvedor Turing hoje mesmo. 100% remoto. Salário mais alto. grandes empresas. Projetos interessantes.\",\r\n    \"link\": \"https://www.turing.com/pt/\",\r\n    \"tags\": [\r\n        {\r\n            \"id\": 2\r\n        },\r\n        {\r\n            \"id\": 4\r\n        }\r\n    ],\r\n    \"expiracao\": \"11-11-2023 12:53\",\r\n    \"institucional\": \"INTERNO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/vaga/criar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"vaga",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Programador Python\",\r\n    \"descricao\": \"Trabalhe de casa como Desenvolvedor de Software. Ganhe em dólar. Trabalho integral. Inscreva-se, faça nosso teste e torne-se um desenvolvedor Turing hoje mesmo. 100% remoto. Salário mais alto. grandes empresas. Projetos interessantes.\",\r\n    \"link\": \"https://www.turing.com/pt/\",\r\n    \"tags\": [\r\n        {\r\n            \"id\": 2\r\n        },\r\n        {\r\n            \"id\": 4\r\n        }\r\n    ],\r\n    \"expiracao\": \"11-11-2023 12:53\",\r\n    \"institucional\": \"INTERNO\",\r\n    \"salario\": \"1000,00\",\r\n    \"status\": \"FINALIZADO\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/vaga/editar/6",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"vaga",
+								"editar",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/vaga/deletar/2",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"vaga",
+								"deletar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/vaga/pesquisar/4",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"vaga",
+								"pesquisar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/vaga/filtrar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"vaga",
+								"filtrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/vaga/listar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"vaga",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Arquivo",
+			"item": [
+				{
+					"name": "uploadFile",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/gilberto.junior/Desktop/listagem/documentos/Certificate - Copia.pdf"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endereco}}/arquivo/uploadFile",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"arquivo",
+								"uploadFile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "downloadFile",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/arquivo/downloadFile/80dce1ef-d4eb-4965-870d-8ba1f576f111",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"arquivo",
+								"downloadFile",
+								"80dce1ef-d4eb-4965-870d-8ba1f576f111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "uploadNewFile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/gilberto.junior/Desktop/Requisição SV.xlsx"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{endereco}}/arquivo/uploadNewFile/80dce1ef-d4eb-4965-870d-8ba1f576f111",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"arquivo",
+								"uploadNewFile",
+								"80dce1ef-d4eb-4965-870d-8ba1f576f111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteFile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/arquivo/deleteFile/869e1065-240e-4d3e-abc7-2dbc8a1e6c29",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"arquivo",
+								"deleteFile",
+								"869e1065-240e-4d3e-abc7-2dbc8a1e6c29"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Curriculo",
+			"item": [
+				{
+					"name": "Criar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"curriculo numero 2\",\r\n    \"arquivo\": {\r\n        \"id\": \"9bd43b80-b530-4ee5-817b-dd99ec39f805\"\r\n    },\r\n    \"descricao\": \"quero muitooooooooooo essa vaga de dono da empresa\",\r\n    \"tags\": [\r\n        {\r\n            \"id\": 2\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/curriculo/criar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"curriculo",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"principal 2\",\r\n    \"arquivo\": {\r\n        \"id\": \"9bd43b80-b530-4ee5-817b-dd99ec39f805\"\r\n    },\r\n    \"descricao\": \"quero muitoooooooooo essa vaga de dono da empresa\",\r\n    \"tags\": [\r\n        {\r\n            \"id\": 2,\r\n            \"nome\": \"b\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/curriculo/editar/4",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"curriculo",
+								"editar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/curriculo/deletar/2",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"curriculo",
+								"deletar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/curriculo/pesquisar/4",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"curriculo",
+								"pesquisar",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"vaga\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/curriculo/filtrar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"curriculo",
+								"filtrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/curriculo/listar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"curriculo",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "Criar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"letra2s\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/tags/criar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"tags",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtrar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/tags/filtrar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"tags",
+								"filtrar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/tags/listar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"tags",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Administração\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/tags/editar/3",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"tags",
+								"editar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/tags/deletar/3",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"tags",
+								"deletar",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/tags/pesquisar/2",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"tags",
+								"pesquisar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Candidaturas",
+			"item": [
+				{
+					"name": "Criar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"curriculo\": {\r\n        \"id\": 1\r\n    },\r\n    \"vaga\": {\r\n        \"id\": 5\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/candidaturas/criar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"candidaturas",
+								"criar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"curriculo\": {\r\n        \"id\": 1\r\n    },\r\n    \"vaga\": {\r\n        \"id\": 5\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/candidaturas/editar/2",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"candidaturas",
+								"editar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/candidaturas/deletar/2",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"candidaturas",
+								"deletar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pesquisar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{endereco}}/candidaturas/pesquisar/2",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"candidaturas",
+								"pesquisar",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/candidaturas/listar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"candidaturas",
+								"listar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Fluxos",
+			"item": [
+				{
+					"name": "UsuarioProfessor",
+					"item": [
+						{
+							"name": "Faz o Cadastro",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"junior\",\r\n    \"email\": \"aluno2@gmail.com\",\r\n    \"senha\": \"teste\",\r\n    \"matricula\": \"12345678\",\r\n    \"arquivo\": {\r\n        \"id\": \"fe594de6-1c58-4908-8123-4261cf5d5500\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/auth/cadastro",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"auth",
+										"cadastro"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Faz a Autenticação",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"matricula\": \"123\",\r\n    \"senha\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/auth/login",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cria uma Vaga",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"Programador PHP 2\",\r\n    \"descricao\": \"Desenvolver, implantar e manter sistemas informatizados (ênfase em protheus), prestando assistência no desenvolvimento de softwares e suporte aos usuários. Acompanhar a confecção e controle dos manuais e de toda a documentação de sistemas e programas. \",\r\n    \"link\": \"\",\r\n    \"tags\": [\r\n        {\r\n            \"id\": 2\r\n        },\r\n        {\r\n            \"id\": 4\r\n        }\r\n    ],\r\n    \"expiracao\": \"11-11-2024 12:53\",\r\n    \"institucional\": \"EXTERNO\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/vaga/criar",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"vaga",
+										"criar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filtrar Vaga",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"titulo\": \"Programador PHP 2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/vaga/filtrar",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"vaga",
+										"filtrar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta a Vaga",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{endereco}}/vaga/deletar/2",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"vaga",
+										"deletar",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta a Conta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{endereco}}/usuario/deletar/6",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"usuario",
+										"deletar",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "UsuarioAluno",
+					"item": [
+						{
+							"name": "Faz o Cadastro",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nome\": \"junior\",\r\n    \"email\": \"aluno2@gmail.com\",\r\n    \"senha\": \"teste\",\r\n    \"matricula\": \"1234567\",\r\n    \"perfil\": {\r\n        \"nome\": \"ROLE_ALUNO\"\r\n    },\r\n    \"arquivo\": {\r\n        \"id\": \"fe594de6-1c58-4908-8123-4261cf5d5500\"\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/auth/cadastro",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"auth",
+										"cadastro"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Faz a Autenticação",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"matricula\": \"1234567\",\r\n    \"senha\": \"teste\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/auth/login",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cria um Curriculo",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"arquivo\": {\r\n        \"id\": \"97e59d2a-1fb4-4f00-afb4-23adfec98b06\"\r\n    },\r\n    \"descricao\": \"quero muitooooooooooo essa vaga de dono da empresa\",\r\n    \"tags\": [\r\n        {\r\n            \"id\": 2,\r\n            \"nome\": \"b\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/curriculo/criar",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"curriculo",
+										"criar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cria a Candidatura",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"curriculo\": {\r\n        \"id\": 1\r\n    },\r\n    \"vaga\": {\r\n        \"id\": 5\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{endereco}}/candidaturas/criar",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"candidaturas",
+										"criar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta a Candidatura",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{endereco}}/vaga/deletar/2",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"vaga",
+										"deletar",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Deleta a Conta",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{endereco}}/usuario/deletar/6",
+									"host": [
+										"{{endereco}}"
+									],
+									"path": [
+										"usuario",
+										"deletar",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Email",
+			"item": [
+				{
+					"name": "Envio",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"emailTo\": \"farik33652@rxcay.com\",\r\n    \"subject\": \"Paranves vc ta reebendo njovdaides\",\r\n    \"text\": \"sua nova senha será: sdahufiusdahfudsa\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{endereco}}/email/enviar",
+							"host": [
+								"{{endereco}}"
+							],
+							"path": [
+								"email",
+								"enviar"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

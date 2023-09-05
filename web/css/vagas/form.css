@@ -1,0 +1,24 @@
+.chosen-choices {
+    padding: .5rem !important;
+    min-height: 48px !important;
+}
+
+.chosen-container-multi .chosen-choices {
+    border: 1px solid #a1a1a1 !important;
+}
+
+.form-check+.form-check {
+    margin-left: 1rem;
+}
+
+input[type=radio] {
+    margin-top: .25rem !important;
+}
+
+.confirmModalCss {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}

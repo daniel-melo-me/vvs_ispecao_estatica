@@ -1,0 +1,127 @@
+.emp-profile{
+    padding: 3%;
+    margin-top: 10%;
+    margin-bottom: 0%;
+    border-radius: 0.5rem;
+    background: #fff;
+}
+.profile-img{
+    text-align: center;
+}
+.profile-img img{
+    width: 70%;
+    height: 100%;
+    border-radius: 1rem;
+}
+.profile-img .file {
+    position: relative;
+    overflow: hidden;
+    margin-top: -20%;
+    width: 70%;
+    border: none;
+    border-radius: 1rem;
+    font-size: 15px;
+    background: #212529b8;
+    opacity: 0;
+    transition: all ease .5s;
+}
+.profile-img .file:hover {
+    opacity: 1;
+}
+.profile-img .file input {
+    position: absolute;
+    opacity: 0;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+.profile-head h5{
+    color: #5f4def;
+    font-size: 35px;
+}
+.profile-head h6{
+    color: #0062cc;
+}
+
+@media(min-width:992px) {
+    .profile-edit-btn {
+        width: 80%; 
+    }
+}
+
+.profile-edit-btn {
+    border: none;
+    border-radius: 1.0rem;
+    padding: .5rem 1rem;
+    font-weight: 600;
+    color: #fff;
+    background-color: #5f4def;
+    cursor: pointer;
+    transition: all ease .5s;
+}
+.profile-edit-btn:hover {
+    background: #333E68;
+}
+.proile-rating{
+    font-size: 12px;
+    color: #818182;
+    margin-top: 3%;
+}
+
+.profile-head .nav-tabs{
+    margin-bottom: 1rem;
+    border: none;
+}
+.profile-head .nav-tabs .nav-link{
+    position: relative;
+    font-weight:600;
+    border: none;
+    color: #888;
+}
+.profile-head .nav-tabs .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: -.25rem;
+    left: 0;
+    width: 0;
+    height: .25rem;
+    background-color: #5f4def;
+    transition: all ease .5s;
+}
+.profile-head .nav-tabs .nav-link.active::before,
+.profile-head .nav-tabs .nav-link:hover::before {
+    width: 100%;
+}
+.profile-head .nav-tabs .nav-link.active, .profile-head .nav-tabs .nav-link:hover {
+    color: #5f4def;
+    text-decoration: none;
+}
+
+.profile-work{
+    padding: 14%;
+    margin-top: -15%;
+}
+.profile-work p{
+    font-size: 12px;
+    color: #818182;
+    font-weight: 600;
+    margin-top: 10%;
+}
+.profile-work a{
+    text-decoration: none;
+    color: #495057;
+    font-weight: 600;
+    font-size: 14px;
+}
+.profile-work ul{
+    list-style: none;
+}
+.profile-tab label{
+    font-weight: 600;
+    color: #5f4def;
+}
+.profile-tab p{
+    font-weight: 400;
+    color: #888;
+}
+

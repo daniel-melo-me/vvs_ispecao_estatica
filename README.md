@@ -1,2 +1,2 @@
-# vvs_ispecao_estatica
-Repositório que tem por finalidade hospedar o código do projete da atividade  de inspeção estática
+# cadastro-vagas
+Sistema para cadastro de vagas de emprego, candidatos e realizar a candidaturas de acordo com as vagas de interesse.
