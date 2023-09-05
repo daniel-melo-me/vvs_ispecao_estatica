@@ -5,11 +5,11 @@ import lombok.Data;
 @Data
 public class UploadFileResponseDTO {
 
-    private String id;
-    private String fileName;
-    private String fileDownloadUri;
-    private String fileType;
-    private long size;
+    String id;
+    String fileName;
+    String fileDownloadUri;
+    String fileType;
+    long size;
 
     public UploadFileResponseDTO(String id, String fileName, String fileDownloadUri, String fileType, long size) {
         this.fileName = fileName;

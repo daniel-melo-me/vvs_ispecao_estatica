@@ -17,8 +17,8 @@ public class EmailRequestDTO {
     private String emailFrom;
     @Email
     private String emailTo;
-    private String subject;
+    String subject;
     @Column(columnDefinition = "TEXT")
     private String text;
-    private LocalDateTime sendDateEmail;
+    LocalDateTime sendDateEmail;
 }

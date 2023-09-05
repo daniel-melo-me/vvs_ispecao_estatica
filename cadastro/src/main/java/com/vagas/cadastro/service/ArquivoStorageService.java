@@ -25,7 +25,7 @@ public class ArquivoStorageService {
 
             return repository.save(dbFile);
         } catch (IOException ex) {
-            throw new RuntimeException("Não foi possível armazenar o arquivo " + fileName + ". Por favor, tente novamente!", ex);
+            throw new InvalidFileNameException("Não foi possível armazenar o arquivo " + fileName + ". Por favor, tente novamente!", ex);
         }
     }
 
@@ -40,7 +40,7 @@ public class ArquivoStorageService {
         try {
             // Check if the file's name contains invalid characters
             if (fileName.contains("..")) {
-                throw new RuntimeException("Desculpe! O caminho do arquivo não é válido " + fileName);
+                throw new InvalidFileNameException("Desculpe! O caminho do arquivo não é válido " + fileName);
             }
 
             Arquivo dbFile = new Arquivo(fileName, file.getContentType(), file.getBytes());
@@ -48,7 +48,7 @@ public class ArquivoStorageService {
 
             return repository.save(dbFile);
         } catch (IOException ex) {
-            throw new RuntimeException("Não foi possível armazenar o arquivo " + fileName + ". Por favor, tente novamente!", ex);
+            throw new InvalidFileNameException("Não foi possível armazenar o arquivo " + fileName + ". Por favor, tente novamente!", ex);
         }
     }
 
@@ -59,7 +59,7 @@ public class ArquivoStorageService {
 
     private void verificarId(String id) {
         if (!repository.existsById(id)) {
-            throw new RuntimeException("Id não encontrado");
+            throw new InvalidFileNameException("Id não encontrado");
         }
     }
 }

@@ -15,14 +15,14 @@ public class CorsFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) {
-
+        // Este método está vazio de propósito, pois não precisamos de nenhuma inicialização específica aqui.
     }
 
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
             throws IOException, ServletException {
 
         HttpServletRequest request = (HttpServletRequest) servletRequest;
-        System.out.println("CORSFilter HTTP Request: " + request.getMethod());
+        logger.info("CORSFilter HTTP Request: {}", request.getMethod());
 
         // Authorize (allow) all domains to consume the content
         ((HttpServletResponse) servletResponse).addHeader("Access-Control-Allow-Origin", "*");
@@ -45,6 +45,6 @@ public class CorsFilter implements Filter {
 
     @Override
     public void destroy() {
-
+        // Este método está vazio de propósito, pois não precisamos de nenhuma inicialização específica aqui.
     }
 }
